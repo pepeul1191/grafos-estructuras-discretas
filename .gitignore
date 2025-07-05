@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints (auto guardado)
+.ipynb_checkpoints/
+
+# Entornos virtuales
+.env/
+.venv/
+env/
+venv/
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de Jupyter
+.jupyter/
+
+# Archivos de configuración de IPython
+.ipython/
+
+# Archivos de logs o salida temporal
+*.log
+
+# Variables de entorno (si usas dotenv)
+.env
+
+# Cache de JupyterLab
+.jupyter/lab/workspaces/
+
+# Config de VSCode (si usas este editor)
+.vscode/
