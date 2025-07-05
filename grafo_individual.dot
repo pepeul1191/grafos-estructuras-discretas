@@ -1,0 +1,53 @@
+graph Zona {
+  rankdir=LR;
+  node [shape=circle, style=filled, fillcolor=lightgreen];
+
+  // Nivel 1
+  { rank=same; A; B; C; D; }
+
+  A -- B [label=5];  A -- C [label=2];  A -- D [label=3];
+  B -- E [label=4];  B -- F [label=7];
+  C -- G [label=6];  C -- H [label=5];
+  D -- I [label=4];  D -- J [label=2];
+
+  // Nivel 2
+  { rank=same; E; F; G; H; I; J; }
+
+  E -- K [label=6];  F -- L [label=5];
+  G -- M [label=3];  H -- N [label=6];
+  I -- O [label=4];  J -- P [label=5];
+
+  // Conexiones cruzadas entre nivel 1 y 2
+  A -- F [label=4];  B -- G [label=6];  C -- I [label=5];
+
+  // Nivel 3
+  { rank=same; K; L; M; N; O; P; }
+
+  K -- Q [label=3];  L -- R [label=6];
+  M -- S [label=7];  N -- T [label=5];
+  O -- U [label=6];  P -- V [label=3];
+
+  // Conexiones cruzadas entre nivel 2 y 3
+  E -- N [label=4];  F -- P [label=5];  G -- Q [label=3];
+  H -- R [label=6];
+
+  // Nivel 4
+  { rank=same; Q; R; S; T; U; V; }
+
+  Q -- W [label=4];  R -- X [label=3];
+  S -- Y [label=6];  T -- Z [label=5];
+  U -- A [label=6];  V -- B [label=4];
+
+  // Conexiones cruzadas entre nivel 3 y 4
+  K -- Y [label=5];  L -- Z [label=3];  M -- X [label=4];
+  N -- W [label=6];
+
+  // Nivel 5
+  { rank=same; W; X; Y; Z; }
+
+  W -- C [label=5];  X -- D [label=6];
+  Y -- E [label=4];  Z -- F [label=7];
+
+  // Conexiones cruzadas entre nivel 4 y 5
+  Q -- Z [label=6];  R -- Y [label=5];  S -- W [label=4];  T -- X [label=3];
+}
