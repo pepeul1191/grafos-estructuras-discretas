@@ -1,0 +1,53 @@
+graph Distrito {
+  rankdir=LR; // Disposición horizontal
+  node [shape=circle, style=filled, fillcolor=lightblue];
+
+  // Nivel 1
+  { rank=same; A; B; C; D; }
+
+  A -- B [label=4];  A -- C [label=3];  A -- D [label=2];
+  B -- E [label=6];  B -- F [label=5];
+  C -- G [label=7];  C -- H [label=4];
+  D -- I [label=3];  D -- J [label=5];
+
+  // Nivel 2
+  { rank=same; E; F; G; H; I; J; }
+
+  E -- K [label=4];  F -- L [label=6];
+  G -- M [label=5];  H -- N [label=4];
+  I -- O [label=3];  J -- P [label=6];
+
+  // Conexiones cruzadas entre nivel 1 y 2
+  A -- G [label=5];  B -- H [label=4];  C -- J [label=6];
+
+  // Nivel 3
+  { rank=same; K; L; M; N; O; P; }
+
+  K -- Q [label=4];  L -- R [label=7];
+  M -- S [label=5];  N -- T [label=6];
+  O -- U [label=5];  P -- V [label=4];
+
+  // Conexiones cruzadas entre nivel 2 y 3
+  E -- M [label=4];  F -- N [label=5];  G -- O [label=6];
+  H -- P [label=3];
+
+  // Nivel 4
+  { rank=same; Q; R; S; T; U; V; }
+
+  Q -- W [label=6];  R -- X [label=5];
+  S -- Y [label=4];  T -- Z [label=3];
+  U -- A [label=7];  V -- B [label=6];
+
+  // Conexiones cruzadas entre nivel 3 y 4
+  K -- S [label=3];  L -- T [label=5];  M -- U [label=4];
+  N -- V [label=6];
+
+  // Nivel 5 (cierre de ciclos y retorno)
+  { rank=same; W; X; Y; Z; }
+
+  W -- C [label=4];  X -- D [label=5];
+  Y -- E [label=6];  Z -- F [label=7];
+
+  // Conexiones cruzadas entre nivel 4 y 5
+  Q -- Y [label=4];  R -- Z [label=6];  S -- W [label=5];  T -- X [label=4];
+}
